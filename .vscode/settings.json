@@ -18,5 +18,10 @@
         "titleBar.inactiveBackground": "#228b2299",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#228B22"
+    "peacock.color": "#228B22",
+    "python.testing.pytestArgs": [
+        "backend"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }

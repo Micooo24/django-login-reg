@@ -63,17 +63,7 @@ class User(models.Model):
         if not hasattr(self, 'passphrase'):
             random_passphrase = ''.join(random.choices(string.ascii_uppercase, k=4))
             Passphrase.objects.create(passphrase=random_passphrase, user=self)
-            
-class Account(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='accounts')
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=100)
-    username = models.CharField(max_length=100)
-    Password = models.OneToOneField(Password, on_delete=models.CASCADE, related_name='accounts')
-    
-    def __str__(self):
-        return self
-    
+
 class Password(models.Model):
     password = models.CharField(max_length=255)
     
@@ -85,6 +75,17 @@ class Password(models.Model):
     
     def __str__(self):
         return self
+            
+class Account(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='accounts')
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    username = models.CharField(max_length=100)
+    password = models.OneToOneField(Password, on_delete=models.CASCADE, related_name='accounts')
+    
+    def __str__(self):
+        return self
+    
     
     
 class Analysis(models.Model):
