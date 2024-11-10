@@ -30,6 +30,16 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+
+APPEND_SLASH = False
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'users',  # Your app name
+    'users',  # Your app name,
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -86,6 +97,7 @@ DATABASES = {
         
     }
 }
+
 
 
 # Password validation
