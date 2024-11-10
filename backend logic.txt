@@ -1,0 +1,3 @@
+models -> 			serializers -> 		views -> 			urls
+
+columns and relationships	validation of data	handle http requests 		routes
